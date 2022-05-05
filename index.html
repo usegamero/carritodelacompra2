@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="texto-centrado">CESTA COMPRA</h1>
+    </header>
+    <div id="vue-app">
+      <section>
+        <h2>{{userName}}</h2>
+
+        <table>
+          <tr>
+            <th></th>
+            <th>Producto ({{countProducts}})</th>
+            <th>unid</th>
+            <th>p/u</th>
+            <th>total</th>
+          </tr>
+          <tr v-for="item in filteredProducts">
+            <td><button @click="completeBoughtItem(item)">-</button></td>
+            <td>{{item.producto}}</td>
+            <td>{{item.unids}}</td>
+            <td>{{item.pu}}</td>
+            <td>{{pricePerItem(item)}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Subtotal</td>
+            <td>{{totalPrice}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Descuento</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total</td>
+          </tr>
+        </table>
+        <input type="checkbox" v-model="filteredProducts" /> Descuento Black
+        Friday
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
